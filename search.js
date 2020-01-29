@@ -43,9 +43,9 @@ function bfs(tree,values=[]){
     queue.enqueue(tree)
 
     while(queue.first){
-        //remove from queue while there is a first
+        //remove from queue
         const node = queue.dequeue();
-         
+         //add that value from the queue to an array
         values.push(node.value)
 
         //add left child to the queue
