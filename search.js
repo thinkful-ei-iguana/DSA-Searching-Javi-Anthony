@@ -73,7 +73,7 @@ officers.insert(120, 'Lt. Cmdr Crusher');
 officers.insert(70, 'Lieutenant security-officer');
 officers.insert(115, 'Lieutenant Selar');
 
-console.log(bs(officers))
+console.log(bfs(officers))
 
 function main(){
 const officers = new BST()
