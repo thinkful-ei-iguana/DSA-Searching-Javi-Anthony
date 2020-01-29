@@ -36,34 +36,74 @@ function binarySearch(array, value, start, end) {
     }
 };
 
-function main(){
-const tree = new BST()
+function bs(tree,values=[]){
+    const queue = new Queue();
 
-tree.insert(5)
-tree.insert(7)
-tree.insert(6)
-tree.insert(9)
-tree.insert(11)
-tree.insert(10)
-tree.insert(8)
+    // add to queue line from tree
+    queue.enqueue(tree)
 
+    while(queue.first){
+        //remove from queue while there is a first
+        const node = queue.dequeue();
+         
+        values.push(node.value)
 
+        //add left child to the queue
+        if(node.left){
+            queue.enqueue(node.left)
+        }
+        //add right child to the queue
+        if(node.right){
+            queue.enqueue(node.right)
+        }
 
-// tree.insert(35)
-// tree.insert(79)
-// tree.insert(89)
-// tree.insert(90)
-// tree.insert(91)
-// tree.insert(14)
-// tree.insert(15)
-// tree.insert(19)
-// tree.insert(25)
-// tree.insert(27)
- 
-return tree.postOrder()
+    }
+
+    return values
 }
 
-main()
+const officers = new BST()
+
+officers.insert(100, 'Captain Picard');
+officers.insert(90, 'Commander Riker');
+officers.insert(110, 'Commander Data');
+officers.insert(80, 'Lt. Cmdr Worf');
+officers.insert(95, 'Lt. Cmdr LaForge');
+officers.insert(120, 'Lt. Cmdr Crusher');
+officers.insert(70, 'Lieutenant security-officer');
+officers.insert(115, 'Lieutenant Selar');
+
+console.log(bs(officers))
+
+function main(){
+const officers = new BST()
+
+
+// officers.insert(5)
+// officers.insert(7)
+// officers.insert(6)
+// officers.insert(9)
+// officers.insert(11)
+// officers.insert(10)
+// officers.insert(8)
+
+
+
+// officers.insert(35)
+// officers.insert(79)
+// officers.insert(89)
+// officers.insert(90)
+// officers.insert(91)
+// officers.insert(14)
+// officers.insert(15)
+// officers.insert(19)
+// officers.insert(25)
+// officers.insert(27)
+ 
+return officers.postOrder()
+}
+
+
 
 //in-order 14 15 19 25 27 35 79 89 90 91 
 //pre-order 35 25 15 14 19 27 89 79 91 90. 

@@ -14,15 +14,18 @@ class _Node {
     enqueue(data){
   
       const node = new _Node(data, null);
-  
+      
       if (this.first  === null){
         this.first = node;
+        console.log('high')
       }
   
       if(this.last){
         this.last.next= node;
+        console.log('low')
       }
       this.last= node;
+     
     }
   
     dequeue(){
